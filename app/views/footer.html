@@ -1,0 +1,13 @@
+<span class="footer-content"><span>{{'label.front-version' | i18n}}: {{frontVersion}} </span>
+</span>
+<span class="footer-content">
+  <span class="float-right">
+    <div ng-if="i18nLanguage.language !== 'en'">
+      <div class="lang lang-en clickable" i18n-language-selector="'en'">{{'label.current-language' | i18n}}</div>
+    </div>
+    <div ng-if="i18nLanguage.language !== 'fr'">
+      <div class="lang lang-fr clickable" i18n-language-selector="'fr'">{{'label.current-language' | i18n}}</div>
+    </div>
+  </span>
+</span>
+

@@ -1,0 +1,14 @@
+@mixin transition($what: all 200ms linear) {
+  -webkit-transition: $what;
+  -moz-transition: $what;
+  -ms-transition: $what;
+  -o-transition: $what;
+  transition: $what;
+}
+
+@mixin box-shadow($what: 10px 10px 5px #656565) {
+  -moz-box-shadow: $what;
+  -webkit-box-shadow: $what;
+  -o-box-shadow: $what;
+  box-shadow: $what;
+}
