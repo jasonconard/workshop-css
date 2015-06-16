@@ -20,6 +20,8 @@
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
@@ -45,7 +47,13 @@
 					<h1>CSS3 / SASS</h1>
 					<h3>Assisté avec AngularJS pour un rendu de qualité</h3>
 					<p>
-						<small>Créé par <a href="http://conard.jason.free.fr/Perso">Jason Conard</a> / <a href="https://twitter.com/MeiguanxiEbiz">@MeiguanxiEbiz</a></small>
+						<small>
+							Créé par Jason Conard
+						 <br/>
+						 Projet sur <a href="https://github.com/jasonconard/workshop-css" target="_blank">Github</a> voir la branche gh-pages. 
+						 
+						 <br/><br/>Présentation accessible via <a href="http://jasonconard.github.io/workshop-css/#/" target="_blank">http://jasonconard.github.io/workshop-css/#/</a>
+						</small>
 					</p>
 				</section>
 
@@ -478,6 +486,78 @@ selecteurs {
 							<li>Avec gulp, les erreurs SASS s’affichent en console et aucun changement est notable sur la page web, consultez la console gulp si vous remarquez qu’un de vos changements n’a pas été effectué. Une erreur de syntaxe a simplement bloqué la compilation.</li>
 							<li style="font-size: 1.3em;">On peut toujours bricoler pour arriver à un résultat, mais le mieux est de savoir ce que l’on fait !</li>
 						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<div class="example-container">
+							
+							<div class="e-header">
+								<div class="e-header-title">
+									<span>Titre du site<span>
+								</div>
+
+								<div class="e-header-menu clickable" ng-repeat="item in listExample" ng-click="selectInList(item)" ng-class="item.css">
+									<span>{{item.name}}<span>
+								</div>
+							</div>
+							<div class="e-container">
+								<div class="ec-buttons" ng-class="{'btn-open': buttonsOpen}">
+									<div class="ec-button clickable" ng-click="toggleButtons()">
+										<i class="fa fa-cog"></i>
+									</div>
+
+									<div class="ec-mini-button clickable">
+										<i class="fa fa-pencil"></i>
+									</div>
+									<div class="ec-mini-button clickable">
+										<i class="fa fa-user"></i>
+									</div>
+									<div class="ec-mini-button clickable">
+										<i class="fa fa-download"></i>
+									</div>
+								</div>
+							</div>
+							<div class="e-footer"></div>
+
+
+							<div class="e-left-panel" ng-class="{'panel-open' : listSelected}">
+								<div class="e-lp-header" ng-class="listSelected.css">
+									<div class="e-lph-icon clickable" ng-class="listSelected.css">
+										<div class="cross" ng-click="selectInList()">
+											<div class="horizontal-part"></div>
+											<div class="vertical-part"></div>
+										</div>
+									</div>
+									<div class="e-lph-title">
+										<span> {{listSelected.name}} </span>
+									</div>
+									
+								</div>
+								<div class="e-lp-container">
+
+								</div>
+							</div>
+							
+						</div>
+					</section>
+
+					<section>
+						<div class="demo-container">
+							
+							<div class="d-header">
+							</div>
+							<div class="d-container">
+							</div>
+							<div class="d-footer">
+							</div>
+
+
+							<div class="d-left-panel" ng-class="{'panel-open' : listSelected}">
+							</div>
+							
+						</div>
 					</section>
 				</section>
 

@@ -19,6 +19,21 @@ var MainCtrl = function($scope){
   }
 
   $scope.list = ['Pomme', 'Chaussettes', 'Chips'];
+  $scope.listExample = [
+    {'name': 'Bulbizarre', 'css': 'bulbizarre'},
+    {'name': 'Salamèche', 'css': 'salameche'},
+    {'name': 'Carapuce', 'css': 'carapuce'}];
+
+  $scope.listSelected = null;
+  $scope.selectInList = function(item) {
+    $scope.listSelected = item;
+  }
+
+  $scope.buttonsOpen = false;
+  $scope.toggleButtons = function(){
+    $scope.buttonsOpen = !$scope.buttonsOpen;
+  }
+
 
   $scope.deleteItem = function(index) {
     $scope.list.splice(index, 1);
