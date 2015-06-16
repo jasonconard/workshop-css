@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body ng-app="workshop-css">
+
+		<div class="reveal" ng-controller="MainCtrl">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>CSS3 / SASS</h1>
+					<h3>Assisté avec AngularJS pour un rendu de qualité</h3>
+					<p>
+						<small>Créé par <a href="http://conard.jason.free.fr/Perso">Jason Conard</a> / <a href="https://twitter.com/MeiguanxiEbiz">@MeiguanxiEbiz</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Historique</h2>
+					<ul>
+						<li>De nombreux essais de languages de style.</li>
+						<li>A Paris : W3C Stylesheet Workshop.</li>
+						<li>Feuille de style en cascade.</li>
+						<li>Concept : Håkon Wium Lie</li>
+					</ul>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>Document Object Model</h2>
+						<p>Arbre structurant une page HTML.</p>
+						<p>C'est la base de toute page HTML manipulable via du Javascript. 
+							C'est sur ses éléments que l'on affecte des propriétés de style
+							sur la page web.</p>
+					</section>
+					<section>
+						<h2>AngularJS / CSS3 / SASS</h2>
+						<p>
+							<b>AngularJS : </b> Framework JavaScript, directives, alternative aux Web Components.
+						</p>
+						<p>
+							<b>CSS 3 : </b> Norme CSS la plus récente.
+						</p>
+						<p>
+							<b>SASS : </b> Simplification de l'écriture du CSS.
+						</p>
+					</section>
+					<section>
+						<h2>Directives</h2>
+						<p>
+							<b>ng-class : </b>
+							<br/> Gère les classes d'un élément du DOM.
+						</p>
+						<p>
+							<b>ng-if / ng-show : </b>
+							<br/> Affiche / Cache un élément selon le booléen donné en paramètre.
+						</p>
+					</section>
+					<section>
+						<h2>Classes implicites d'AngularJS</h2>
+						<p>
+							Les directives d'AngularJS créent des classes sur les éléments
+							pour gérer des transitions.
+						</p>
+						<p>
+							<b>Exemple : </b>
+							<br/>ng-if appelle .ng-leave-active / .ng-enten-active
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>CSS - Syntaxe</h2>
+<pre><code data-trim>
+selecteurs {
+  propriété : valeur;
+  ...
+}
+</code></pre>
+					</section>
+					<section>
+						<h2>SASS - Avantages</h2>
+						<p>
+							<b>Nesting : </b> Imbrication des blocs sans avoir des sélecteurs à rallonge.
+						</p>
+						<p>
+							<b>Variables : </b>Génériser certaines valeurs, comme les couleurs d'un thème.
+						</p>
+						<p>
+							<b>Mixins : </b> Regroupement des préfixes vendeurs, simplification d'écritures longues et répétitives.
+						</p>
+						<p>
+							<b>Fonctions : </b> Tout un panel de fonctions utilisables pour simplifier des traitements.
+						</p>
+					</section>
+					<section>
+						<h2>SASS - Syntaxe</h2>
+<pre><code data-trim>
+@mixin box-shadow($what : 1px 1px 2px black) {
+  -webkit-box-shadow: $what;
+     -moz-box-shadow: $what;
+          box-shadow: $what;
+}
+.parent-class {
+	.child-class {
+		background-color : $primary-color;
+		@include box-shadow(0px 2px 2px $background-color);
+	}
+}
+</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>CSS - Positionner ses éléments.</h2>
+						<h3>Système de boites.</h3>
+						<p>
+							<img src="img/box-system.png">.
+						</p>
+					</section>
+					<section>
+						<h2>CSS - Position</h2>
+						<p>
+							Logique de positionnement d'un bloc.
+							<br/> Valeurs : static (par défaut), relative, absolute, fixed.
+							<br/><br/> Créé un contexte pour les blocs fils et non static.
+							<br/> Le contexte sert à utiliser par exemple, des pourcentages.
+							<br/> Si on utilise width : 50%; la largeur de l'élément sera égale à 50%
+							du parent non static le plus proche.						
+						</p>
+					</section>
+					<section>
+						<h2>CSS - Position (suite)</h2>
+						<p>
+							Cas particulier pour les pourcentages : 
+							<br/> margin-bottom : 50% ==> Le pourcentage ne sera pas relative à la hauteur, mais à la largeur, ouais ! C'est mal fait ! 
+							<br/><br/> Le contexte permet aussi d'utiliser z-index.	
+						</p>
+					</section>
+					<section>
+						<h2>CSS - Positionnement</h2>
+						<p style="text-align : justify;">
+							<br/> Les propriétés de positionnement top/right/bottom/left ont des effets différents selon les valeurs de la propriété position.
+							<br/><br/> <b>static / relative : </b><br/> Un élément relative se positionne donc relativement à son parent, chaque élément relatif s'empile dans l'ordre donné. Les valeurs de positionnement bougent l'élément en rapport avec la position initiale qu'il devrait avoir.		
+						</p>
+					</section>
+					<section>
+						<h2>CSS - Positionnement</h2>
+						<p style="text-align : justify;">
+
+							<br/><b>absolute : </b><br/>	Un élément absolu se positionne en rapport à son dernier parent non static. Si on dit bottom 0px, l'élément se place en bas de ce parent.
+
+							<br/><br/><b>fixed : </b><br/> Position relative à la fenêtre.			
+						</p>
+					</section>
+					<section>
+						<h2>Exemple - Positionnement</h2>
+						<div style="position: relative; width: 300px; height: 300px; background-color: yellowgreen; margin: auto;">
+							<div style="position: relative; width: 70%; height: 33%; background: firebrick;top: 20px; right: 20px;font-size: 0.5em;">
+								Relative<br/> top: 20px; right: 20px;<br/> width: 70%; height: 33%;
+							</div>
+							<div style="position: absolute; width: 70%; height: 33%; background: midnightblue;bottom: 0px; right: 0px;font-size: 0.5em;">
+								Absolute<br/> bottom: 0px; right: 0px;<br/> width: 70%; height: 33%;
+							</div>
+							<div style="position: fixed; width: 20%; height: 33%; background: purple;bottom: 0px; left: 0px;font-size: 0.5em;">
+								Fixed<br/> bottom: 0px; left: 0px;<br/> width: 20%; height: 33%;
+							</div>
+						</div>
+					</section>
+					<section>
+						<h2>CSS - Display</h2>
+						<p>
+							Le display gère la logique d'affichage de l'élément courant. Par exemple sur un élément relative.
+							<br/>
+							<br/>Un DIV de base a un display BLOCK, donc chaque DIV passe par dessous les autres.
+							<br/>
+							<br/>Un SPAN de base a un display INLINE, donc chaque SPAN suit l'autre sur la même ligne.
+						</p>
+					</section>
+					<section>
+						<h2>CSS - Display (suite)</h2>
+						<p>
+							A savoir qu’un display inline n’est pas redimensionnable alors qu’un block oui.
+							<br/>
+							<br/>
+							Pour couper la poire en deux, un élément redimensionnable et qui s’aligne à ses frères aura “display : inline-block”
+							<br/>
+							<br/>
+							Différents display existent pour simuler les listes et les tableaux. 
+							Un dernier display tout récent nommé “flex” permet de gérer des éléments responsif plus facilement.
+						</p>
+					</section>
+					<section>
+						<h2>Exemple - Display</h2>
+						<div style="position: relative; width: 300px; height: 300px; background-color: yellowgreen; margin: auto;">
+							<div style="position: relative; width: 50%; height: 20%; background: firebrick;font-size: 0.4em; margin-bottom: 10px;">
+								Block<br/>width: 50%; <br/>height: 20%;
+							</div>
+							<div style="position: relative; display:inline-block; width: 50%; height: 20%; background: midnightblue;font-size: 0.4em; margin-bottom: 10px;">
+								Inline-Block<br/>width: 50%; <br/>height: 20%;
+							</div>
+
+							<div style="position: relative; display:inline-block; width: 40%; height: 20%; background: midnightblue;font-size: 0.4em;">
+								Inline-Block<br/>width: 40%; <br/>height: 20%;
+							</div>
+
+							<span style="position: relative; width: 40%; height: 20%; background: purple;font-size: 0.4em;">
+								Inline<br/>width: 40%; height: 20%;<br/>WTF?!!
+							</span>
+						</div>
+					</section>
+					<section>
+						<h2>CSS - Display Flex</h2>
+						<p>
+							A la même manière que le weight en Android, display flex permet de gérer la largeur d’éléments par pondération. 
+							Chaque élément dans un élément en flex sera aligné.
+							<br/><br/>
+							Si un élément parent contient display flex. Alors ses enfants qui utiliseront la propriété flex ( flex : un nombre) pourra définir la pondération en largeur de l’élément. Si flex n’est pas défini, l’élément prendra la place restante pour tenir à la ligne.
+						</p>
+					</section>
+					<section>
+						<h2>CSS - Display Flex</h2>
+						<p>
+							Une astuce avec display flex est l’alignement vertical. 
+							Si vous déclarez un bloc parent en “display : flex”. 
+							Vous pouvez centrer son bloc enfant en affectant à cet enfant la propriété “margin : auto”.
+						</p>
+					</section>
+
+					<section>
+						<h2>Exemple - Flex</h2>
+						<div style="position: relative; display: flex; width: 300px; height: 300px; background-color: yellowgreen; margin: auto;">
+							<div style="width: 50%; height: 20%; background: firebrick;font-size: 0.4em; margin: auto;">
+								margin: auto;<br/>width: 50%; <br/>height: 20%;
+							</div>
+							
+						</div>
+					</section>
+
+					<section>
+						<h2>Exemple - Flex</h2>
+						<div style="position: relative; display: flex; width: 300px; height: 70px; background-color: yellowgreen; margin: auto;">
+							<div style="display: flex; flex: 2;height: 100%; background: royalblue;font-size: 0.4em; margin: auto;">
+								<span style="margin: auto">flex : 2;</span>
+							</div>
+
+							<div style="display: flex; width: 50%;height: 100%; background: purple;font-size: 0.4em; margin: auto;">
+								<span style="margin: auto">width: 50%;</span>
+							</div>
+
+							<div style="display: flex; flex: 3;height: 100%; background: royalblue;font-size: 0.4em; margin: auto;">
+								<span style="margin: auto">flex : 3;</span>
+							</div>
+							
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>CSS - Outils</h2>
+						<h3>Unités</h3>
+						<ul>
+							<li><b>Unité classique : </b>px</li>
+							<li><b>Unités d'impression : </b>cm, mm, in</li>
+							<li><b>Unités générales/relatives : </b>em, rem, pt</li>
+							<li><b>Unité de viewport : </b>vw, vh, vmin, vmax</li>
+						</ul>
+					</section>
+					<section>
+						<h2>CSS - Media Queries</h2>
+						<p>
+							<b>Depuis CSS2 : </b> Permet de gérer l'affichage sur différentes sorties, imprimante, braille, tv ...
+							<br/><br/>
+							<b>Depuis CSS3 : </b> Selon des tailles, height, max-height, min-height, idem pour width, orientation pour les mobiles...
+						</p>
+					</section>
+					<section>
+						<h2>Exemple - Media Queries</h2>
+<pre><code data-trim>
+@media(max-width : 1000px) {
+  body {
+    font-size : 12px;
+  }
+}
+</code></pre>
+					</section>
+					<section>
+						<h2>CSS - Sélecteurs</h2>
+						Permet de savoir sur quoi on place une propriété CSS.<br/>
+						<ul style="font-size: 0.8em;">
+							<li>Sélecteurs simples : .nom-de-class, #nom-id, a, img, body …</li>
+							<li>Sélecteurs à propriétés : input[type=’text’]</li>
+							<li>Sélecteurs multiples : .une-classe, .une-autre</li>
+							<li>Sélecteurs hièrarchiques :  
+								<br/>.une-classe .un-descendant
+								<br/>.une-classe > .un-descendant-direct
+							</li>
+							<li>Sélecteurs d’événements : .classe:hover ou .classe:active ou .classe:link ou .classe:visited</li>
+							<li>Sélecteurs de fils : .classe:first-child ou .class:last-child ou .class:nth-child(n) ou .class:nth-child(even) ou .classe:nth-child(odd) ...</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Exemple - Sélecteurs avec SASS</h2>
+<pre><code data-trim>
+.mon-bouton {
+  //Quelques propriétés
+  display: flex;
+  @include transition(all 200ms ease-out);
+  &:hover {
+    @include box-shadow(0px 3px 1px $shadow-color);
+  }
+  > span {
+    margin: auto;
+  }
+}
+</code></pre>
+					</section>
+
+					<section>
+						<h2>CSS - Trucs sympa</h2>
+						Permet de savoir sur quoi on place une propriété CSS.<br/>
+						<ul style="font-size: 0.9em;">
+							<li>box-shadow : Créé une ombre en dessous de l’élément - inset, x, y, blur, couleur.</li>
+							<li>transition : Permet de faire des animations - éléments, durée, fonction, délai</li>
+							<li>pointer-events : Permet d’activer/désactiver la possibilité de cliquer à travers l’élément, pratique pour les éléments translucides.</li>
+							<li>user-select : Permet de refuser la sélection sur l’élément pour prévenir des effets du spam clic.</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>CSS - Trucs sympa</h2>
+						Permet de savoir sur quoi on place une propriété CSS.<br/>
+						<ul style="font-size: 0.9em;">
+							<li>white-space : En lui passant la valeur nowrap on empèche le saut de ligne.</li>
+							<li>border-radius : Permet des arrondis sur des blocs. 50% pour faire un rond.</li>
+							<li>transform : Permet de faire des rotations/translation/scaling sur les éléments.</li>
+							<li>animation : assisté de keyframe permet de gérer des animations avec précision.</li>
+							<li>opacity : permet de rendre l’élément plus ou moins translucide ainsi que son contenu. (différent d’un background color en rgba)</li>
+							<li>z-index : gère la priorité en profondeur d’un élément.</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+					<h2>Angular dans tout ça?</h2>
+<pre><code data-trim>
+<div id="left-panel" ng-class="{'panel-open' : panelOpen}"> … </div>
+
+#left-panel {
+  position: absolute;
+  width : 320px;
+  top : 0px;
+  left : -320px;
+  @include transition(left 200ms ease-out);
+  &.panel-open {
+    left : 0px;
+  }
+}
+</code></pre>
+					</section>
+					<section>
+						<h2>Exemple - Panneau à gauche</h2>
+						<div style="position: relative; width: 300px; height: 300px; background-color: yellowgreen; margin: auto; overflow: hidden;">
+							
+							<div id="left-panel" ng-class="{'panel-open' : leftMenuOpen}">
+								Je suis le panneau de gauche
+							</div>
+
+							<div class="clickable unselectable" style="position: absolute; width: 50px; height: 50px; right: 0px; bottom: 0px;background: purple;text-align: center;"
+							ng-click="toggleMenu()"
+							>#</div>
+						</div>
+					</section>
+
+
+					<section>
+						<h2>Exemple - ng-leave-active</h2>
+<pre><code data-trim>
+<div class="list-item" ng-repeat="item in list" 
+     ng-click="deleteItem();"> … </div>
+
+.list-item {
+  …
+  transform : scale(1,1);
+  @include transition(transform 200ms ease-out);
+  &.ng-leave-active {
+    transform : scale(0,0);
+  }
+}
+</code></pre>
+				
+					</section>
+					<section>
+						<h2>Exemple - ng-leave-active</h2>
+						<div style="display: flex;">
+							<div class="list-item" ng-repeat="item in list">
+						    	<div style="flex: 1;">  {{item}} </div>
+						    	<div class="clickable" style="width: 50px; height: 50px;" ng-click="deleteItem($index)">
+						    	<span style="margin:auto;">x</span>
+						    </div>
+
+							</div>	
+						</div>
+
+						<div class="clickable" ng-click="reinitItems()">Réinitialiser</div>
+									
+					</section>
+
+					<section>
+						<h2>Optimiser le CSS</h2>
+						<p>2 techniques : Minimifier, Nesting intelligent</p>
+						<p style="font-size: 0.8em;">
+							Minimifier un CSS consiste à réduire l’écriture d’un élément.
+							<br/><br/>Exemple classique ⇒ margin : 5px 3px 5px 3px (haut droite bas gauche)
+							<br/><br/>On peut l’écrire aussi ⇒ margin : 5px 3px (haut-bas droite-gauche)
+							<br/><br/>On a aussi ⇒ margin : 5px 5px 5px 5px, ça devient ⇒ margin : 5px
+							<br/><br/>Ceci fonctionne avec les border, border-radius et padding.
+					</section>
+
+					<section>
+						<h2>Nesting intelligent</h2>
+						<p style="font-size: 0.8em;">
+							On doit limiter le Nesting à 3 voir 4 niveaux pour pas avoir des appels longs trop souvent.
+							<br/><br/>On doit aussi d’un autre côté limiter le nombre de selecteurs pour ne pas avoir un CSS à rallonge qui serait long à interpréter.
+					</section>
+
+					<section>
+						<h2>Conseils divers</h2>
+						Permet de savoir sur quoi on place une propriété CSS.<br/>
+						<ul style="font-size: 0.7em;">
+							<li>Utiliser la console de dev pour tester des changements rapidement.</li>
+							<li>Pour tester une propriété, “nomDePropriété generator” sur google, ça marche quasiment à tous les coups !</li>
+							<li>N’hésitez pas à consulter la doc de display flex.</li>
+							<li>La doc de ng-animate est pas mal aussi !</li>
+							<li>Pour faire un “switch” le ternaire est utilisable dans<br/> ng-class=”myBool ? ‘une-classe’ : ‘une-autre’”.</li>
+							<li>Attention au box-sizing de bootstrap.</li>
+							<li>Attention à la priorité de lecture des fichiers CSS et aux override.</li>
+							<li>Avec gulp, les erreurs SASS s’affichent en console et aucun changement est notable sur la page web, consultez la console gulp si vous remarquez qu’un de vos changements n’a pas été effectué. Une erreur de syntaxe a simplement bloqué la compilation.</li>
+							<li style="font-size: 1.3em;">On peut toujours bricoler pour arriver à un résultat, mais le mieux est de savoir ce que l’on fait !</li>
+						</ul>
+					</section>
+				</section>
+
+				<section id="themes">
+					<h2>Themes</h2>
+					<p>
+						reveal.js comes with a few themes built in: <br>
+						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
+					</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="https://code.angularjs.org/1.3.16/angular.min.js"></script>
+		<script src="https://code.angularjs.org/1.3.16/angular-animate.min.js"></script>
+		<script src="js/app.js"></script>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
