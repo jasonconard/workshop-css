@@ -44,17 +44,22 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>CSS3 / SASS</h1>
-					<h3>Assisté avec AngularJS pour un rendu de qualité</h3>
-					<p>
-						<small>
-							Créé par Jason Conard
-						 <br/>
-						 Projet sur <a href="https://github.com/jasonconard/workshop-css" target="_blank">Github</a> voir la branche gh-pages. 
-						 
-						 <br/><br/>Présentation accessible via <a href="http://jasonconard.github.io/workshop-css/#/" target="_blank">http://jasonconard.github.io/workshop-css/#/</a>
-						</small>
-					</p>
+          <section>
+            <h1>CSS3 / SASS</h1>
+            <h3>Assisté avec AngularJS pour un rendu de qualité</h3>
+            <p>
+              <small>
+                Créé par Jason Conard
+                <br/>
+                Projet sur <a href="https://github.com/jasonconard/workshop-css" target="_blank">Github</a>, voir la branche gh-pages.
+
+                <br/><br/>Présentation accessible via <a href="http://jasonconard.github.io/workshop-css/#/" target="_blank">http://jasonconard.github.io/workshop-css/#/</a>
+              </small>
+            </p>
+          </section>
+					<section>
+            <img src="img/no-idea.jpg">
+					</section>
 				</section>
 
 				<section>
@@ -79,7 +84,7 @@
 					<section>
 						<h2>AngularJS / CSS3 / SASS</h2>
 						<p>
-							<b>AngularJS : </b> Framework JavaScript, directives, alternative aux Web Components.
+							<b>AngularJS : </b> Framework JavaScript, directives : alternative aux Web Components.
 						</p>
 						<p>
 							<b>CSS 3 : </b> Norme CSS la plus récente.
@@ -107,7 +112,7 @@
 						</p>
 						<p>
 							<b>Exemple : </b>
-							<br/>ng-if appelle .ng-leave-active / .ng-enten-active
+							<br/>ng-if appelle .ng-leave-active / .ng-enter-active
 						</p>
 					</section>
 				</section>
@@ -157,10 +162,10 @@ selecteurs {
 
 				<section>
 					<section>
-						<h2>CSS - Positionner ses éléments.</h2>
-						<h3>Système de boites.</h3>
+						<h2>CSS - Positionner ses éléments</h2>
+						<h3>Système de boites</h3>
 						<p>
-							<img src="img/box-system.png">.
+							<img src="img/box-system.png">
 						</p>
 					</section>
 					<section>
@@ -178,7 +183,7 @@ selecteurs {
 						<h2>CSS - Position (suite)</h2>
 						<p>
 							Cas particulier pour les pourcentages : 
-							<br/> margin-bottom : 50% ==> Le pourcentage ne sera pas relative à la hauteur, mais à la largeur, ouais ! C'est mal fait ! 
+							<br/> margin-bottom : 50% ==> Le pourcentage ne sera pas relatif à la hauteur, mais à la largeur, ouais ! C'est mal fait !
 							<br/><br/> Le contexte permet aussi d'utiliser z-index.	
 						</p>
 					</section>
@@ -200,14 +205,14 @@ selecteurs {
 					</section>
 					<section>
 						<h2>Exemple - Positionnement</h2>
-						<div style="position: relative; width: 300px; height: 300px; background-color: yellowgreen; margin: auto;">
+						<div style="position: relative; width: 300px; height: 300px; background-color: #cdc5c9; margin: auto;">
 							<div style="position: relative; width: 70%; height: 33%; background: firebrick;top: 20px; right: 20px;font-size: 0.5em;">
 								Relative<br/> top: 20px; right: 20px;<br/> width: 70%; height: 33%;
 							</div>
 							<div style="position: absolute; width: 70%; height: 33%; background: midnightblue;bottom: 0px; right: 0px;font-size: 0.5em;">
 								Absolute<br/> bottom: 0px; right: 0px;<br/> width: 70%; height: 33%;
 							</div>
-							<div style="position: fixed; width: 20%; height: 33%; background: purple;bottom: 0px; left: 0px;font-size: 0.5em;">
+							<div style="position: fixed; width: 20%; height: 33%; background: #008010;bottom: 0px; left: 0px;font-size: 0.5em;">
 								Fixed<br/> bottom: 0px; left: 0px;<br/> width: 20%; height: 33%;
 							</div>
 						</div>
@@ -215,10 +220,10 @@ selecteurs {
 					<section>
 						<h2>CSS - Display</h2>
 						<p>
-							Le display gère la logique d'affichage de l'élément courant. Par exemple sur un élément relative.
-							<br/>
+							Le display gère la logique d'affichage de l'élément courant.
+              <br/><br/>Par exemple sur un élément relative :
+              <br/>
 							<br/>Un DIV de base a un display BLOCK, donc chaque DIV passe par dessous les autres.
-							<br/>
 							<br/>Un SPAN de base a un display INLINE, donc chaque SPAN suit l'autre sur la même ligne.
 						</p>
 					</section>
@@ -228,7 +233,7 @@ selecteurs {
 							A savoir qu’un display inline n’est pas redimensionnable alors qu’un block oui.
 							<br/>
 							<br/>
-							Pour couper la poire en deux, un élément redimensionnable et qui s’aligne à ses frères aura “display : inline-block”
+							Pour couper la poire en deux, un élément redimensionnable et qui s’aligne à ses frères aura “display : inline-block”.
 							<br/>
 							<br/>
 							Différents display existent pour simuler les listes et les tableaux. 
@@ -237,7 +242,7 @@ selecteurs {
 					</section>
 					<section>
 						<h2>Exemple - Display</h2>
-						<div style="position: relative; width: 300px; height: 300px; background-color: yellowgreen; margin: auto;">
+						<div style="position: relative; width: 300px; height: 300px; background-color: #cdc5c9; margin: auto;">
 							<div style="position: relative; width: 50%; height: 20%; background: firebrick;font-size: 0.4em; margin-bottom: 10px;">
 								Block<br/>width: 50%; <br/>height: 20%;
 							</div>
@@ -249,7 +254,7 @@ selecteurs {
 								Inline-Block<br/>width: 40%; <br/>height: 20%;
 							</div>
 
-							<span style="position: relative; width: 40%; height: 20%; background: purple;font-size: 0.4em;">
+							<span style="position: relative; width: 40%; height: 20%; background: #008010;font-size: 0.4em;">
 								Inline<br/>width: 40%; height: 20%;<br/>WTF?!!
 							</span>
 						</div>
@@ -274,7 +279,7 @@ selecteurs {
 
 					<section>
 						<h2>Exemple - Flex</h2>
-						<div style="position: relative; display: flex; width: 300px; height: 300px; background-color: yellowgreen; margin: auto;">
+						<div style="position: relative; display: flex; width: 300px; height: 300px; background-color: #cdc5c9; margin: auto;">
 							<div style="width: 50%; height: 20%; background: firebrick;font-size: 0.4em; margin: auto;">
 								margin: auto;<br/>width: 50%; <br/>height: 20%;
 							</div>
@@ -284,12 +289,12 @@ selecteurs {
 
 					<section>
 						<h2>Exemple - Flex</h2>
-						<div style="position: relative; display: flex; width: 300px; height: 70px; background-color: yellowgreen; margin: auto;">
+						<div style="position: relative; display: flex; width: 300px; height: 70px; background-color: #cdc5c9; margin: auto;">
 							<div style="display: flex; flex: 2;height: 100%; background: royalblue;font-size: 0.4em; margin: auto;">
 								<span style="margin: auto">flex : 2;</span>
 							</div>
 
-							<div style="display: flex; width: 50%;height: 100%; background: purple;font-size: 0.4em; margin: auto;">
+							<div style="display: flex; width: 50%;height: 100%; background: #008010;font-size: 0.4em; margin: auto;">
 								<span style="margin: auto">width: 50%;</span>
 							</div>
 
@@ -307,15 +312,15 @@ selecteurs {
 						<h3>Unités</h3>
 						<ul>
 							<li><b>Unité classique : </b>px</li>
-							<li><b>Unités d'impression : </b>cm, mm, in</li>
-							<li><b>Unités générales/relatives : </b>em, rem, pt</li>
-							<li><b>Unité de viewport : </b>vw, vh, vmin, vmax</li>
+							<li class="fragment" data-fragment-index="1"><b>Unités d'impression : </b>cm, mm, in</li>
+							<li class="fragment" data-fragment-index="2"><b>Unités générales/relatives : </b>em, rem, pt</li>
+							<li class="fragment" data-fragment-index="3"><b>Unités de viewport : </b>vw, vh, vmin, vmax</li>
 						</ul>
 					</section>
 					<section>
 						<h2>CSS - Media Queries</h2>
 						<p>
-							<b>Depuis CSS2 : </b> Permet de gérer l'affichage sur différentes sorties, imprimante, braille, tv ...
+							<b>Depuis CSS2 : </b> Permet de gérer l'affichage sur différentes sorties : imprimante, braille, tv ...
 							<br/><br/>
 							<b>Depuis CSS3 : </b> Selon des tailles, height, max-height, min-height, idem pour width, orientation pour les mobiles...
 						</p>
@@ -335,14 +340,14 @@ selecteurs {
 						Permet de savoir sur quoi on place une propriété CSS.<br/>
 						<ul style="font-size: 0.8em;">
 							<li>Sélecteurs simples : .nom-de-class, #nom-id, a, img, body …</li>
-							<li>Sélecteurs à propriétés : input[type=’text’]</li>
-							<li>Sélecteurs multiples : .une-classe, .une-autre</li>
-							<li>Sélecteurs hièrarchiques :  
+							<li class="fragment" data-fragment-index="1">Sélecteurs à propriétés : input[type=’text’]</li>
+							<li class="fragment" data-fragment-index="2">Sélecteurs multiples : .une-classe, .une-autre</li>
+							<li class="fragment" data-fragment-index="3">Sélecteurs hièrarchiques :
 								<br/>.une-classe .un-descendant
 								<br/>.une-classe > .un-descendant-direct
 							</li>
-							<li>Sélecteurs d’événements : .classe:hover ou .classe:active ou .classe:link ou .classe:visited</li>
-							<li>Sélecteurs de fils : .classe:first-child ou .class:last-child ou .class:nth-child(n) ou .class:nth-child(even) ou .classe:nth-child(odd) ...</li>
+							<li class="fragment" data-fragment-index="4">Sélecteurs d’événements : .classe:hover ou .classe:active ou .classe:link ou .classe:visited</li>
+							<li class="fragment" data-fragment-index="5">Sélecteurs de fils : .classe:first-child ou .class:last-child ou .class:nth-child(n) ou .class:nth-child(even) ou .classe:nth-child(odd) ...</li>
 						</ul>
 					</section>
 
@@ -365,25 +370,23 @@ selecteurs {
 
 					<section>
 						<h2>CSS - Trucs sympa</h2>
-						Permet de savoir sur quoi on place une propriété CSS.<br/>
 						<ul style="font-size: 0.9em;">
 							<li>box-shadow : Créé une ombre en dessous de l’élément - inset, x, y, blur, couleur.</li>
-							<li>transition : Permet de faire des animations - éléments, durée, fonction, délai</li>
-							<li>pointer-events : Permet d’activer/désactiver la possibilité de cliquer à travers l’élément, pratique pour les éléments translucides.</li>
-							<li>user-select : Permet de refuser la sélection sur l’élément pour prévenir des effets du spam clic.</li>
+							<li class="fragment" data-fragment-index="1">transition : Permet de faire des animations - éléments, durée, fonction, délai</li>
+							<li class="fragment" data-fragment-index="2">pointer-events : Permet d’activer/désactiver la possibilité de cliquer à travers l’élément, pratique pour les éléments translucides.</li>
+							<li class="fragment" data-fragment-index="3">user-select : Permet de refuser la sélection sur l’élément pour prévenir des effets du spam clic.</li>
 						</ul>
 					</section>
 
 					<section>
 						<h2>CSS - Trucs sympa</h2>
-						Permet de savoir sur quoi on place une propriété CSS.<br/>
 						<ul style="font-size: 0.9em;">
 							<li>white-space : En lui passant la valeur nowrap on empèche le saut de ligne.</li>
-							<li>border-radius : Permet des arrondis sur des blocs. 50% pour faire un rond.</li>
-							<li>transform : Permet de faire des rotations/translation/scaling sur les éléments.</li>
-							<li>animation : assisté de keyframe permet de gérer des animations avec précision.</li>
-							<li>opacity : permet de rendre l’élément plus ou moins translucide ainsi que son contenu. (différent d’un background color en rgba)</li>
-							<li>z-index : gère la priorité en profondeur d’un élément.</li>
+							<li class="fragment" data-fragment-index="1">border-radius : Permet des arrondis sur des blocs. 50% pour faire un rond.</li>
+							<li class="fragment" data-fragment-index="2">transform : Permet de faire des rotations / translations / redimensionnements sur les éléments.</li>
+							<li class="fragment" data-fragment-index="3">animation : assisté de keyframes, permet de gérer des animations avec précision.</li>
+							<li class="fragment" data-fragment-index="4">opacity : permet de rendre l’élément plus ou moins translucide ainsi que son contenu. (différent d’un background color en rgba)</li>
+							<li class="fragment" data-fragment-index="5">z-index : gère la priorité en profondeur d’un élément.</li>
 						</ul>
 					</section>
 				</section>
@@ -408,13 +411,13 @@ selecteurs {
 					</section>
 					<section>
 						<h2>Exemple - Panneau à gauche</h2>
-						<div style="position: relative; width: 300px; height: 300px; background-color: yellowgreen; margin: auto; overflow: hidden;">
+						<div style="position: relative; width: 300px; height: 300px; background-color: #cdc5c9; margin: auto; overflow: hidden;">
 							
 							<div id="left-panel" ng-class="{'panel-open' : leftMenuOpen}">
 								Je suis le panneau de gauche
 							</div>
 
-							<div class="clickable unselectable" style="position: absolute; width: 50px; height: 50px; right: 0px; bottom: 0px;background: purple;text-align: center;"
+							<div class="clickable unselectable" style="position: absolute; width: 50px; height: 50px; right: 0px; bottom: 0px;background: #008010;text-align: center;"
 							ng-click="toggleMenu()"
 							>#</div>
 						</div>
@@ -469,7 +472,7 @@ selecteurs {
 						<h2>Nesting intelligent</h2>
 						<p style="font-size: 0.8em;">
 							On doit limiter le Nesting à 3 voir 4 niveaux pour pas avoir des appels longs trop souvent.
-							<br/><br/>On doit aussi d’un autre côté limiter le nombre de selecteurs pour ne pas avoir un CSS à rallonge qui serait long à interpréter.
+							<br/><br/>On doit aussi d’un autre côté, limiter le nombre de selecteurs pour ne pas avoir un CSS à rallonge qui serait long à interpréter.
 					</section>
 
 					<section>
@@ -477,14 +480,14 @@ selecteurs {
 						Permet de savoir sur quoi on place une propriété CSS.<br/>
 						<ul style="font-size: 0.7em;">
 							<li>Utiliser la console de dev pour tester des changements rapidement.</li>
-							<li>Pour tester une propriété, “nomDePropriété generator” sur google, ça marche quasiment à tous les coups !</li>
-							<li>N’hésitez pas à consulter la doc de display flex.</li>
-							<li>La doc de ng-animate est pas mal aussi !</li>
-							<li>Pour faire un “switch” le ternaire est utilisable dans<br/> ng-class=”myBool ? ‘une-classe’ : ‘une-autre’”.</li>
-							<li>Attention au box-sizing de bootstrap.</li>
-							<li>Attention à la priorité de lecture des fichiers CSS et aux override.</li>
-							<li>Avec gulp, les erreurs SASS s’affichent en console et aucun changement est notable sur la page web, consultez la console gulp si vous remarquez qu’un de vos changements n’a pas été effectué. Une erreur de syntaxe a simplement bloqué la compilation.</li>
-							<li style="font-size: 1.3em;">On peut toujours bricoler pour arriver à un résultat, mais le mieux est de savoir ce que l’on fait !</li>
+							<li class="fragment" data-fragment-index="1">Pour tester une propriété, “nomDePropriété generator” sur google, ça marche quasiment à tous les coups !</li>
+							<li class="fragment" data-fragment-index="2">N’hésitez pas à consulter la doc de display flex.</li>
+							<li class="fragment" data-fragment-index="3">La doc de ng-animate est pas mal aussi !</li>
+							<li class="fragment" data-fragment-index="4">Pour faire un “switch” le ternaire est utilisable dans<br/> ng-class=”myBool ? ‘une-classe’ : ‘une-autre’”.</li>
+							<li class="fragment" data-fragment-index="5">Attention au box-sizing de bootstrap.</li>
+							<li class="fragment" data-fragment-index="6">Attention à la priorité de lecture des fichiers CSS et aux override.</li>
+							<li class="fragment" data-fragment-index="7">Avec gulp, les erreurs SASS s’affichent en console et aucun changement est notable sur la page web, consultez la console gulp si vous remarquez qu’un de vos changements n’a pas été effectué. Une erreur de syntaxe a simplement bloqué la compilation.</li>
+							<li class="fragment" data-fragment-index="8" style="font-size: 1.3em;">On peut toujours bricoler pour arriver à un résultat, mais le mieux est de savoir ce que l’on fait !</li>
 						</ul>
 					</section>
 				</section>
@@ -495,27 +498,27 @@ selecteurs {
 							
 							<div class="e-header">
 								<div class="e-header-title">
-									<span>Titre du site<span>
+									<span>Titre du site</span>
 								</div>
 
 								<div class="e-header-menu clickable" ng-repeat="item in listExample" ng-click="selectInList(item)" ng-class="item.css">
-									<span>{{item.name}}<span>
+									<span>{{item.name}}</span>
 								</div>
 							</div>
 							<div class="e-container">
 								<div class="ec-buttons" ng-class="{'btn-open': buttonsOpen}">
 									<div class="ec-button clickable" ng-click="toggleButtons()">
-										<i class="fa fa-cog"></i>
+										<i class="fa fa-github-alt"></i>
 									</div>
 
 									<div class="ec-mini-button clickable">
-										<i class="fa fa-pencil"></i>
+										<i class="fa fa-paw"></i>
+                  </div>
+									<div class="ec-mini-button clickable">
+										<i class="fa fa-slideshare"></i>
 									</div>
 									<div class="ec-mini-button clickable">
-										<i class="fa fa-user"></i>
-									</div>
-									<div class="ec-mini-button clickable">
-										<i class="fa fa-download"></i>
+										<i class="fa fa-rebel fa-spin"></i>
 									</div>
 								</div>
 							</div>
